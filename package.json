@@ -1,0 +1,46 @@
+{
+  "name": "ielts-writing-scorer-lite",
+  "version": "0.1.0",
+  "description": "Offline rubric-style feedback for IELTS Writing Task 2. Unofficial heuristic band-estimate ranges only — not an IELTS score.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "ielts-writing-scorer-lite": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && tsc -p tsconfig.test.json && node --test --test-reporter=spec \"dist-test/test/**/*.test.js\"",
+    "clean": "rm -rf dist dist-test",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ielts",
+    "writing",
+    "task-2",
+    "essay",
+    "cli",
+    "heuristic",
+    "feedback"
+  ],
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  }
+}
